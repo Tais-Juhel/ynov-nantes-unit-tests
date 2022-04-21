@@ -16,18 +16,17 @@ class FlattenTest extends TestCase
         $this->assertEquals(flatten([]), []);
     }
 
-    public function test_with_string ()
+    public function test_with_type ()
     {
-        $this->assertEquals(flatten(["a"]), ["a"]);
-    }
-
-    public function test_with_int ()
-    {
+        $this->assertEquals(flatten(["1"]), ["1"]);
         $this->assertEquals(flatten([1]), [1]);
+        $this->assertEquals(flatten([1.0]), [1.0]);
     }
 
     public function test_with_array ()
     {
         $this->assertEquals(flatten([[1, 2], 3]), [1,2,3]);
+        $this->assertEquals(flatten([[1], [2, 3]]), [1,2,3]);
+        $this->assertEquals(flatten([[1],[2, [3, 4]]]), [1,2,3,4]);
     }
 }
