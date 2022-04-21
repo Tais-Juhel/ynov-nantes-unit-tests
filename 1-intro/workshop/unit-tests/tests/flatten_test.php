@@ -13,21 +13,21 @@ class FlattenTest extends TestCase
 
     public function test_with_null ()
     {
-        $this->assertEquals([], []);
+        $this->assertEquals(flatten([]), []);
     }
 
     public function test_with_string ()
     {
-        $this->assertEquals("a", "a");
+        $this->assertEquals(flatten(["a"]), ["a"]);
     }
 
-    public function test_with_string_in_array ()
+    public function test_with_int ()
     {
-        $this->assertEquals(["1", 2], ["1",2]);
+        $this->assertEquals(flatten([1]), [1]);
     }
 
     public function test_with_array ()
     {
-        $this->assertEquals([[1,2], 3], [[1,2],3]);
+        $this->assertEquals(flatten([[1, 2], 3]), [1,2,3]);
     }
 }
