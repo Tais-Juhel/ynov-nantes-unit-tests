@@ -1,22 +1,50 @@
 const Item = require("./Item");
 
-const newitemdata = {
-    name: 'name'
-};
-
 describe("Item model", () => {
 
     it("create and read item", async () => {
-        const validItem = new Item(newitemdata);
-        const savedItem = await validItem.save();
-        expect(savedItem.name).toBe(validItem.name);
+        const res = await request.post('/item/add')
+            .send({
+                name: 'name'
+            });
+
+        const item = await Item.findOne({
+            name: 'name'
+        });
+
+        expect(item.name).toBeTruthy();
     });
 
     it("update item", async () => {
+        const res = await request.post('/item/add')
+        .send({
+            name: 'name'
+        });
+
+        const item = await Item.findOne({
+            name: 'name'
+        });
+
+        item.name = 'name2';
+
+        expect(item.name).toBe('name2');
 
     });
 
     it("delete item", async() => {
+
+        const res = await request.post('/item/add')
+        .send({
+            name: 'name'
+        });
+
+        const item = await Item.findOne({
+            name: 'name'
+        });
+
+        await item.drop();
+
+        expect(item).toBeNull();
 
     });
 });
