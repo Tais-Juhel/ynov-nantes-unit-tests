@@ -1,10 +1,18 @@
 class Grid {
-    
-    constructor(x, y, grid) {
-        this.x = x
-        this.y = y
-        this.gird = grid
+
+    constructor() {
+
     }
+
+    grid_parser(x, y, grid) {
+        if(grid.length != y) {
+            throw new Error('incorrect dimensions');
+        }
+        if(grid[0].length != x) {
+            throw new Error('incorrect dimensions');
+        }
+    }
+
 }
 
 module.exports = {
