@@ -13,6 +13,10 @@ class Grid {
         }
     }
 
+    fill_numbers(grid) {
+
+    }
+
 }
 
 module.exports = {
