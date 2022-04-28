@@ -44,6 +44,23 @@ class Grid {
         }
     }
 
+    notFilled() {
+        let counter = 0
+        this.map.map(line => {
+            line.map(point => {
+                if (point === ".") {
+                    counter++
+                }
+            })
+        })
+        console.log('Counter:', counter)
+        if(counter > this.x * this.y / 2) {
+            return true
+        } else {
+            throw new Error("Too much mine !")
+        }
+    }
+
 }
 
 module.exports = {
