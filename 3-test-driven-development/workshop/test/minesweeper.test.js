@@ -12,8 +12,8 @@ describe("Gilded Rose", function() {
     it("Not zero", function() {
         const grid1 = new Grid(0,10);
         expect(grid1.isTooSmall()).toThrow("Dimensions cannot be zero !");
-        const grid2 = new Grid(0,10);
+        const grid2 = new Grid(10,0);
         expect(grid2.isTooSmall()).toThrow("Dimensions cannot be zero !");
-      });
+    });
 
 })
