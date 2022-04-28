@@ -39,7 +39,7 @@ describe("minesweeper", () => {
     });
 
     it("Min 1 mine", function() {
-        const grid = new Grid(x, y, emptyMap);
+        const grid = new Grid(4, 4, emptyMap);
         expect(()=>{grid.haveMine()}).toThrow("No mine on field !");
     });
 
