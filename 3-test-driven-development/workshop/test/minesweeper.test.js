@@ -8,6 +8,12 @@ const map = [
     [".", "*", ".", "."],
     [".", ".", ".", "."]
 ];
+const emptyMap = [
+    [".", ".", ".", "."],
+    [".", ".", ".", "."],
+    [".", ".", ".", "."],
+    [".", ".", ".", "."]
+];
 
 describe("minesweeper", () => {
 
@@ -30,6 +36,11 @@ describe("minesweeper", () => {
         expect(()=>{grid1.isTooSmall()}).toThrow("Dimensions cannot be zero !");
         const grid2 = new Grid(10,0);
         expect(()=>{grid2.isTooSmall()}).toThrow("Dimensions cannot be zero !");
+    });
+
+    it("Min 1 mine", function() {
+        const grid = new Grid(x, y, emptyMap);
+        expect(()=>{grid.haveMine()}).toThrow("No mine on field !");
     });
 
 });
