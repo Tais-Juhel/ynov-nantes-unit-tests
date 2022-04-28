@@ -14,6 +14,12 @@ const emptyMap = [
     [".", ".", ".", "."],
     [".", ".", ".", "."]
 ];
+const filledMap = [
+    ["*", "*", "*", "*"],
+    [".", ".", "*", "*"],
+    [".", ".", "*", "*"],
+    [".", "*", "*", "."]
+];
 
 describe("minesweeper", () => {
 
@@ -41,6 +47,11 @@ describe("minesweeper", () => {
     it("Min 1 mine", function() {
         const grid = new Grid(4, 4, emptyMap);
         expect(()=>{grid.haveMine()}).toThrow("No mine on field !");
+    });
+
+    it("Filled field", function() {
+        const grid = new Grid(4, 4, filledMap);
+        expect(()=>{grid.notFilled()}).toThrow("To much mine !");
     });
 
 });
