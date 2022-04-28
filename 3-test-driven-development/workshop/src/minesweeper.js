@@ -37,27 +37,12 @@ class Grid {
             })
         })
         console.log('Counter:', counter)
-        if(counter !== this.x * this.y) {
-            return true
-        } else {
+        if(counter === this.x * this.y) {
             throw new Error("No mine on field !")
-        }
-    }
-
-    notFilled() {
-        let counter = 0
-        this.map.map(line => {
-            line.map(point => {
-                if (point === ".") {
-                    counter++
-                }
-            })
-        })
-        console.log('Counter:', counter)
-        if(counter > this.x * this.y / 2) {
-            return true
-        } else {
+        } else if (counter < this.x * this.y / 2){
             throw new Error("Too much mine !")
+        } else {
+            return true
         }
     }
 

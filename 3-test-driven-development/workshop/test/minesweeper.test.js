@@ -51,7 +51,7 @@ describe("minesweeper", () => {
 
     it("Filled field", function() {
         const grid = new Grid(4, 4, filledMap);
-        expect(()=>{grid.notFilled()}).toThrow("Too much mine !");
+        expect(()=>{grid.haveMine()}).toThrow("Too much mine !");
     });
 
 });
