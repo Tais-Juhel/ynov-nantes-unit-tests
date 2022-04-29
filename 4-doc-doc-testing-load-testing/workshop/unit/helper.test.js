@@ -18,4 +18,20 @@ describe("Correct Behavior Helper Service", () => {
         expect(HelperService.helperTodoCreation(param)).toBe(false);
     })
 
+    it("Good id type", () => {
+        const param = { body: { id: 15}};
+        expect(HelperService.helperTypeId(param)).toBe(true);
+    })
+
+    it("Bad id type", () => {
+        let param = { body: { id: '15'}};
+        expect(HelperService.helperTypeId(param)).toBe(false);
+
+        param = { body: null};
+        expect(HelperService.helperTypeId(param)).toBe(false);
+
+        param = 15;
+        expect(HelperService.helperTypeId(param)).toBe(false);
+    })
+
 })

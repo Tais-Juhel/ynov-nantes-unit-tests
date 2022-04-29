@@ -20,6 +20,10 @@ const postTodo = (req, res) => {
 }
 
 const patchTodo = (req, res) => {
+  if (!helperTypeId(req)) {
+    res.status(400).send('Incorrect ID type')
+  }
+
   const { id } = req.params;
   ToDoService.patch(id)
       .then((toDo) => res.status(200).send(toDo))

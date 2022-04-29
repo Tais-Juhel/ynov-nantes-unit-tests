@@ -6,4 +6,15 @@ const helperTodoCreation = (req) => {
     return true;
 }
 
-module.exports = { helperTodoCreation }
+const helperTypeId = (req) => {
+
+    if (!req.body || typeof req.body.id != "number" ) {
+        return false;
+    }
+    return true;
+}
+
+module.exports = { 
+    helperTodoCreation,
+    helperTypeId
+}
