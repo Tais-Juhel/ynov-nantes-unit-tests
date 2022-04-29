@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
+    "test-codecept": "codeceptjs run",
+    "codecept-init": "codeceptjs init",
     "start": "node server.js",
     "start:dev": "nodemon server.js"
   },
@@ -11,8 +14,14 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "codeceptjs": "^3.3.2",
     "express": "^4.16.4",
-    "nodemon": "^1.18.9",
-    "mongoose": "^5.4.1"
+    "jest": "^28.0.2",
+    "mongodb": "^4.5.0",
+    "mongoose": "^5.13.14",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "playwright": "^1.21.1"
   }
 }
